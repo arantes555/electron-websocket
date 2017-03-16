@@ -1,0 +1,58 @@
+{
+  "name": "electron-websocket",
+  "version": "1.0.0-aplha1",
+  "description": "A module to use chromium websockets in electron's background process",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "files": [
+    "lib/index.js",
+    "lib/index.es.js"
+  ],
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "build": "cross-env BABEL_ENV=rollup rollup -c",
+    "test": "xvfb-maybe cross-env BABEL_ENV=test electron-mocha --compilers js:babel-register test/test.js",
+    "posttest": "standard",
+    "coverage": "xvfb-maybe cross-env BABEL_ENV=coverage electron-mocha --compilers js:babel-register test/test.js -R test/coverage-reporter.js",
+    "report": "npm run coverage && codecov -f coverage/coverage-final.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arantes555/electron-websocket.git"
+  },
+  "keywords": [
+    "electron",
+    "websocket"
+  ],
+  "author": "David Frank",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arantes555/electron-websocket/issues"
+  },
+  "homepage": "https://github.com/arantes555/electron-websocket",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-istanbul": "^4.0.0",
+    "babel-preset-env": "^1.1.10",
+    "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "codecov": "^1.0.1",
+    "cross-env": "^3.2.3",
+    "dirty-chai": "^1.2.2",
+    "electron": "^1.6.2",
+    "electron-mocha": "^3.3.0",
+    "is-builtin-module": "^1.0.0",
+    "istanbul-api": "^1.1.1",
+    "istanbul-lib-coverage": "^1.0.1",
+    "mocha": "^3.1.2",
+    "nyc": "^10.1.2",
+    "promise": "^7.1.1",
+    "rollup": "^0.41.4",
+    "rollup-plugin-babel": "^2.7.1",
+    "standard": "^9.0.1",
+    "xvfb-maybe": "^0.1.3"
+  }
+}
